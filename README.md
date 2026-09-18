@@ -47,4 +47,4 @@ python manage.py test
 ```
 
 ## ✒️ Author
-**Ajeet Kumar** & **Sewak Meghwal**
+**Sewak Meghwal**

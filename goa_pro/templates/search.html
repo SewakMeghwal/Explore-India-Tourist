@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}Search Results - Tourist Places{% endblock %}
+{% block title %}Search Results - Explore India{% endblock %}
 
 {% block content %}
 <div class="container my-5">
     <div class="row mb-4">
-        <div class="col-12">
-            <h2 class="fw-bold text-center">
+        <div class="col-12 text-center">
+            <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill small mb-2">SEARCH PORTAL</span>
+            <h2 class="fw-extrabold display-6 text-dark mb-1">
                 {% if query %}
                     Search Results for <span class="text-primary">"{{ query }}"</span>
                 {% else %}
                     Search Destinations
                 {% endif %}
             </h2>
-            <hr class="w-25 mx-auto text-primary" style="height: 3px;">
+            <p class="text-secondary">Matching tourist attractions and state travel destinations</p>
+            <hr class="w-25 mx-auto bg-gradient text-primary" style="height: 4px; border: none; border-radius: 2px;">
         </div>
     </div>
 
@@ -21,30 +23,40 @@
         {% if data %}
             {% for item in data %}
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
-                    {% if item.Image %}
-                        <img src="{{ item.Image.url }}" class="card-img-top" alt="{{ item.Title }}" style="height: 220px; object-fit: cover;">
-                    {% else %}
-                        <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 220px;">
-                            <i class="fa fa-picture-o fa-3x"></i>
+                <div class="card card-modern h-100">
+                    <div class="position-relative overflow-hidden">
+                        {% if item.Image %}
+                            <img src="{{ item.Image.url }}" class="card-img-top" alt="{{ item.Title }}" style="height: 240px; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-secondary bg-opacity-25 text-secondary d-flex align-items-center justify-content-center" style="height: 240px;">
+                                <i class="fa fa-picture-o fa-3x"></i>
+                            </div>
+                        {% endif %}
+
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1.5 rounded-pill small"><i class="fa fa-map-marker text-warning me-1"></i> {{ item.state }}</span>
                         </div>
-                    {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">{{ item.Title }}</h5>
-                        <p class="card-text text-muted flex-grow-1">
+                    </div>
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="card-title fw-bold text-dark mb-2">{{ item.Title }}</h5>
+                        <p class="card-text text-secondary small flex-grow-1 lh-relaxed">
                             {{ item.Description|truncatewords:20 }}
                         </p>
-                        <a href="{% url 'readmore' item.id %}" class="btn btn-outline-primary mt-auto">Read More</a>
+                        <div class="pt-3 border-top d-flex justify-content-between align-items-center mt-3">
+                            <span class="badge bg-light text-secondary rounded-pill px-2.5 py-1 small"><i class="fa fa-sun-o text-warning me-1"></i> {{ item.season }}</span>
+                            <a href="{% url 'readmore' item.id %}" class="btn btn-brand-primary btn-sm px-3">View Place <i class="fa fa-arrow-right ms-1"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         {% else %}
             <div class="col-12 text-center py-5">
-                <div class="alert alert-info d-inline-block px-5 py-4 rounded-3 shadow-sm">
-                    <i class="fa fa-search fa-2x mb-3 text-info"></i>
-                    <h4>No Destinations Found</h4>
-                    <p class="mb-0 text-muted">Try searching with different keywords like state, city, or place name.</p>
+                <div class="p-5 bg-white rounded-4 shadow-sm d-inline-block">
+                    <i class="fa fa-search fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-bold">No Matching Places Found</h4>
+                    <p class="text-muted mb-0">Try searching with a different state, city, or destination keyword.</p>
                 </div>
             </div>
         {% endif %}

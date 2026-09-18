@@ -1,23 +1,65 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - Goa Travel Portal{% endblock %}
+{% block title %}Home - Explore India Tourism Portal{% endblock %}
 
 {% block content %}
-<!-- Carousel Header -->
+<!-- Modern Hero Carousel -->
 {% include 'crou.html' %}
 
-<!-- Main Description Container -->
+<!-- Welcome & Overview Container -->
 <div class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-lg-10">
-      <div class="card shadow-sm border-0 rounded-4 p-4 p-md-5 bg-white">
-        <h1 class="text-center fw-bold text-dark mb-4">Welcome to Goa Tourist Portal</h1>
-        <p class="lead text-secondary lh-lg mb-4" style="text-align: justify;">
-          Goa is the perfect mix of natural beauty, lively nightlife, and tropical environs. Check out our Goa blog portal, where you will find all the essential information to help you plan an awesome vacation to the party-state. From the best tourist attractions to plush resorts, this collection of travel blogs on Goa will make your trip fun and hassle-free.
-        </p>
-        <p class="text-muted lh-lg" style="text-align: justify;">
-          Discover the tropical state's best-kept secrets in these blogs. Each Goa travel blog showcases essential information such as the best time to visit, how to reach, and other nitty-gritty tips for you to enjoy your vacation fully. We have treated every Goa tour blog as a platform to showcase our love and fervor for India's favorite party destination. Don't limit yourself to crowded beaches when you can explore new and offbeat places. Whether it's North Goa or South Goa, our guides have got you covered!
-        </p>
+    <div class="col-lg-11">
+      <div class="card card-modern p-4 p-md-5 border-0">
+        <div class="text-center mb-4">
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill uppercase tracking-wider small">WELCOME TO EXPLORE INDIA</span>
+          <h1 class="fw-extrabold text-dark mt-2 display-5">Goa & India Travel Portal</h1>
+          <hr class="w-25 mx-auto bg-gradient text-primary" style="height: 4px; border: none; border-radius: 2px;">
+        </div>
+
+        <div class="row align-items-center g-4 my-2">
+          <div class="col-md-6">
+            <p class="lead text-secondary lh-lg mb-3" style="text-align: justify;">
+              Goa is the ultimate mix of pristine beaches, exhilarating nightlife, and tropical serenity. Explore our comprehensive travel portal featuring handpicked guides, hidden attractions, luxury beach resorts, and curated seasonal packages.
+            </p>
+            <p class="text-muted lh-lg mb-4" style="text-align: justify;">
+              Whether you are planning a relaxed coastal escape in North Goa or looking to wander through offbeat heritage villages in South Goa, our portal equips you with essential travel tips, seasonal guides, and verified hotel recommendations.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="{% url 'show' %}" class="btn btn-brand-primary px-4 py-2.5">Browse All Destinations</a>
+              <a href="{% url 'hotels' %}" class="btn btn-outline-dark px-4 py-2.5 rounded-3 fw-semibold">Find Hotels</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="p-4 bg-light rounded-4 text-center border border-light">
+                  <div class="display-6 fw-bold text-primary mb-1">50+</div>
+                  <div class="small fw-semibold text-secondary">Tourist Places</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-4 bg-light rounded-4 text-center border border-light">
+                  <div class="display-6 fw-bold text-danger mb-1">5</div>
+                  <div class="small fw-semibold text-secondary">Top Indian States</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-4 bg-light rounded-4 text-center border border-light">
+                  <div class="display-6 fw-bold text-success mb-1">100%</div>
+                  <div class="small fw-semibold text-secondary">Verified Stays</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-4 bg-light rounded-4 text-center border border-light">
+                  <div class="display-6 fw-bold text-warning mb-1">24/7</div>
+                  <div class="small fw-semibold text-secondary">Travel Portal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

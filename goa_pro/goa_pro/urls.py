@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from goa_app import views
 
-admin.site.site_header = "Ajeet Kumar Admin"
-admin.site.site_title = "Turist Place Admin Portal"
-admin.site.index_title = " Welcome to Turist Place Admin"
+admin.site.site_header = "Sewak Meghwal Admin Portal"
+admin.site.site_title = "Tourist Place Admin Portal"
+admin.site.index_title = "Welcome to Tourist Place Admin"
 
 
 
