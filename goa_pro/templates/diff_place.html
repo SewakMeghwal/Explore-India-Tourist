@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Different Places - Tourist Places{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 text-center py-5">
+            <h2 class="fw-bold mb-3">Explore Diverse Destinations</h2>
+            <p class="lead text-muted">Discover unique travel locations across all states in India.</p>
+            <a href="{% url 'show' %}" class="btn btn-primary btn-lg mt-3">Browse All Destinations</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

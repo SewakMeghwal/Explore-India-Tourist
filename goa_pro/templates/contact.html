@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Contact Us - Tourist Places{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 bg-white">
+                <div class="text-center mb-4">
+                    <i class="fa fa-envelope-o fa-3x text-primary mb-2"></i>
+                    <h2 class="fw-bold">Contact Us</h2>
+                    <p class="text-muted">We would love to hear from you! Send us your query or feedback.</p>
+                    <hr class="w-25 mx-auto text-primary" style="height: 3px;">
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    {{ form.First_name|as_crispy_field }}
+                    {{ form.Last_name|as_crispy_field }}
+                    {{ form.Contact_no|as_crispy_field }}
+                    {{ form.Email_id|as_crispy_field }}
+                    {{ form.Message|as_crispy_field }}
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                            <i class="fa fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

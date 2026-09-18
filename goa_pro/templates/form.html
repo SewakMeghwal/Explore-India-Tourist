@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add New Destination - Tourist Places{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            {% if user.is_superuser %}
+            <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 bg-white">
+                <div class="text-center mb-4">
+                    <i class="fa fa-plus-circle fa-3x text-warning mb-2"></i>
+                    <h2 class="fw-bold">Add New Destination</h2>
+                    <p class="text-muted">Create a new tourist destination entry in the portal</p>
+                    <hr class="w-25 mx-auto text-warning" style="height: 3px;">
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ data|crispy }}
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-warning btn-lg shadow-sm fw-semibold">
+                            <i class="fa fa-check"></i> Submit Destination
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <div class="alert alert-danger d-inline-block px-5 py-4 rounded-3 shadow-sm">
+                    <i class="fa fa-lock fa-3x mb-3 text-danger"></i>
+                    <h4>Access Denied</h4>
+                    <p class="mb-0 text-muted">You must be an administrator to access this page.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile - Tourist Places{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-white text-center">
+                <div class="bg-primary py-4 text-white">
+                    <h3 class="fw-bold mb-0">User Profile</h3>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <!-- Profile Picture -->
+                    <div class="mb-4 position-relative d-inline-block">
+                        {% if da2 and da2.0.image %}
+                            <img src="{{ da2.0.image.url }}" alt="Profile Image" class="rounded-circle shadow border border-3 border-white" style="width: 150px; height: 150px; object-fit: cover;">
+                            <div class="mt-2">
+                                <a href="{% url 'update' da2.0.id %}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fa fa-camera"></i> Change Image
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center shadow border" style="width: 130px; height: 130px;">
+                                <i class="fa fa-user fa-4x text-secondary"></i>
+                            </div>
+                            <div class="mt-2">
+                                <a href="{% url 'profileimage' %}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fa fa-upload"></i> Upload Picture
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- User Info Details -->
+                    {% for u in da1 %}
+                    <div class="bg-light p-3 rounded-3 text-start mb-4">
+                        <div class="mb-2">
+                            <span class="text-muted small d-block">Username</span>
+                            <span class="fw-bold text-dark fs-5">{{ u.username }}</span>
+                        </div>
+                        <div class="mb-0">
+                            <span class="text-muted small d-block">Email Address</span>
+                            <span class="fw-semibold text-dark">{{ u.email|default:"Not provided" }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{% url 'changep' %}" class="btn btn-outline-warning">
+                            <i class="fa fa-key"></i> Change Password
+                        </a>
+                        <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                            <i class="fa fa-sign-out"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
